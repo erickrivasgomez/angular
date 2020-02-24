@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Login } from "../../models/Login";
-import { TokenService } from "../../services/token/token.service";
-import { LoginService } from "../../services/login/login.service";
+import { Login } from "../../shared/models/Login";
+import { TokenService } from "../../shared/services/token/token.service";
+import { LoginService } from "../../shared/services/login/login.service";
 
 @Component({
   templateUrl: './login.component.html',
