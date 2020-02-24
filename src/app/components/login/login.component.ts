@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Login } from "../../shared/models/Login";
 import { TokenService } from "../../shared/services/token/token.service";
 import { LoginService } from "../../shared/services/login/login.service";
 
 @Component({
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.controls.email);
-    console.log(this.loginForm.controls.password);
     if (this.loginForm.valid) {
       // do call here
       const loginObject: Login = {
@@ -37,9 +35,7 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get("password").value
       };
       this._loginService.login(loginObject).subscribe(response => {
-        console.log(response);
         this._tokenService.setActiveToken(response.token);
-        console.log(response.token);
         this._router.navigateByUrl("users");
       });
     } else {
