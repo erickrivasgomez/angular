@@ -1,40 +1,23 @@
 <section class="py-4">
     <div class="container text-center">
-        <h1>Welcome to UsersApp!</h1>
-        <h3>This is the users list</h3>
-        {{_users[0].email}}
         <div class="row justify-content-center py-4">
+            <div class="col-12 d-flex justify-content-between">
+                <h1>Welcome to UsersApp!</h1>
+                <a href="logout" class="btn btn-secondary">Log out</a>
+            </div>
+            <div class="col-12">
+                <h3>This is the users list</h3>
+            </div>
             <div class="col-12 col-md-11">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="list-group text-left">
+                    <a [href]="'user/' + user.id" *ngFor="let user of _users" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{user.first_name + " " + user.last_name}}</h5>
+                          <small>Click for details</small>
+                        </div>
+                        <small>{{user.email}}</small>
+                      </a>
+                  </div>
             </div>
         </div>
     </div>
